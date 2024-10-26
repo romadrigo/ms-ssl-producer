@@ -1,0 +1,29 @@
+server:
+  port: 8081
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost:9092}
+    properties:
+      "[ssl.endpoint.identification.algorithm]": " "
+    producer:
+      security:
+        protocol: PLAINTEXT
+      ##ssl:
+      ##key-store-location: classpath:tls/kafka.producer.keystore.jks
+      ##key-store-password: confluent
+      ##trust-store-location: classpath:tls/kafka.producer.truststore.jks
+      ##trust-store-password: confluent
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+app:
+  topic:
+    alumno: ${TOPIC:alumnos_notas}
+
+logging:
+  level:
+    root: INFO
+    "[org.springframework.web]": DEBUG
+    "[org.springframework.kafka]": INFO
+    "[com.rrodrigo]": DEBUG
