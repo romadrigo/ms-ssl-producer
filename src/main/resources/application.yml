@@ -19,7 +19,7 @@ spring:
 
 app:
   topic:
-    alumno: ${TOPIC:alumnos_notas}
+    notas: ${TOPIC:alumnos_notas}
 
 logging:
   level:

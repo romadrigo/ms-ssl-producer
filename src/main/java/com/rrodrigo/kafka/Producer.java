@@ -22,7 +22,7 @@ public class Producer {
     @Autowired
     private KafkaTemplate<String, Object> kafkaTemplate;
 
-    @Value("${app.topic.alumno}")
+    @Value("${app.topic.notas}")
     private String topic;
 
     @Transactional
