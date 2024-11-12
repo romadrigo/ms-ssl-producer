@@ -27,7 +27,7 @@ public class Producer {
 
     @Transactional
     public void send(AlumnoRequest message) throws InterruptedException, ExecutionException, TimeoutException {
-        kafkaTemplate.send(topic, null, message).get(5, TimeUnit.SECONDS);
+        kafkaTemplate.send(topic, null, message).get(20, TimeUnit.SECONDS);
         logger.info("sending message='{}' with partition='{}'", message);
     }
 }
